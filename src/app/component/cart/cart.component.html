@@ -1,0 +1,83 @@
+
+<ng-container *ngIf="products.length !=0">
+  <div class="container">
+      <div class="card-table">
+          <div class="cart-product">
+              <table class="table table-responsive">
+                  <thead>
+                      <tr>
+                          <th>Sr.No</th>
+                          <th>Product Name</th>
+                          <th>Product Image</th>
+
+                          <th>Price</th>
+                          <th>Quantity</th>
+                          <th>Total</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of products; let i = index">
+                          <td>{{i+1}}</td>
+                          <td>{{item.title}}</td>
+                          <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
+
+                          <th style="width: 12%;">{{item.price}}</th>
+                          <td style="width: 12%;">
+                          <div>
+                            <div class="example-button-container">
+                              <mat-form-field appearance="fill">
+                                <mat-label>Select Quantity</mat-label>
+                                <!-- <mat-select [(ngModel)]="selectedValue" name="Quantity"> -->
+                                  <mat-select name="Quantity" >
+                                  <mat-option *ngFor="let food of displayQty;let j = index" [value]="food" (onSelectionChange)="qtyChage(food,i)" >
+                                    {{food}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+
+
+
+                          </td>
+                          <td style="width: 12%;">{{item.total}}</td>
+                          <td>
+                            <button (click)="removeItem(item)" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                                <mat-icon>delete</mat-icon>
+                              </button>
+
+                          </td>
+                      </tr>
+                      <tr>
+                          <td colspan="4"></td>
+                          <td><button mat-raised-button color="primary" (click)="emptycart()">Empty Cart</button></td>
+                          <td><button mat-raised-button color="accent" routerLink="/products">Shop More</button></td>
+                          <td><button mat-raised-button color="warn">Checkout</button></td>
+                          <td><strong>Grand Total: ${{grandTotal}}</strong></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</ng-container>
+
+
+<ng-container *ngIf="products.length ==0">
+  <div class="container">
+      <div class="card">
+          <h5 class="card-title">My Cart</h5>
+      </div>
+      <div class="center">
+
+          <h4>Your cart is empty!</h4>
+          <h6>Add item to it now</h6>
+          <button routerLink="/products" class="btn btn-primary">Shop Now</button>
+      </div>
+  </div>
+</ng-container>
+
+
+

@@ -1,0 +1,94 @@
+<ngx-loading-bar [height]="'10px'" [color]="'#eaa0af'" [includeSpinner]="false"></ngx-loading-bar>
+<nav class="navbar navbar-expand-lg navbar-light bg-white w-100 navigation" id="navbar">
+  <div class="container">
+    <a class="navbar-brand font-weight-bold" routerLink="/">E-Shop</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+      aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="main-navbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Home </a>
+        </li>
+        <!-- Pages -->
+        <li class="nav-item dropdown dropdown-slide">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Category
+          </a>
+          <ul  class="dropdown-menu" aria-labelledby="navbarDropdown3">
+            <li *ngFor="let cat of catArray" ><a routerLink="/men" class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="onselect(cat)">{{cat}}</a></li>
+          </ul>
+        </li>
+
+
+
+        <!-- /Pages -->
+        <!-- / Blog -->
+
+        <li class="nav-item dropdown dropdown-slide">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-delay="350"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Shop.
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+            <li><a routerLink="/shop">Shop</a></li>
+            <li><a href="#">Product Details</a></li>
+            <li><a routerLink="/checkout">Checkout</a></li>
+            <li><a routerLink="/cart">Cart</a></li>
+            <li><a href="#">Confirmation</a></li>
+          </ul>
+        </li><!-- / Blog -->
+
+        <!-- Account -->
+        <li class="nav-item dropdown dropdown-slide">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown5" role="button" data-delay="350"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account.
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown5">
+            <li><a routerLink="/dashboard">Dahsboard</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">Address</a></li>
+            <li><a href="#">Profile Details</a></li>
+            <li><a routerLink="/login">Login Page</a></li>
+            <li><a href="#">SignUp Page</a></li>
+            <li><a href="#">Forgot Password</a></li>
+          </ul>
+        </li><!-- / Account -->
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- Navbar-collapse -->
+
+    <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
+      <li class="list-inline-item">
+        <form action="" class="search-bar">
+          <input type="search" name="search" pattern=".*\S.*" required>
+          <button class="search-btn" type="submit">
+            <span>Search</span>
+          </button>
+        </form>
+      </li>
+
+      <li class="dropdown cart-nav dropdown-slide list-inline-item">
+        <a routerLink="/cart" class="dropdown-toggle cart-icon" data-toggle="dropdown" data-hover="dropdown">
+          <i class="tf-ion-android-cart"></i>
+        </a>
+
+      </li>
+      <li class="list-inline-item"><a routerLink="/login"><i class="tf-ion-ios-person mr-3"></i></a></li>
+      <li class="list-inline-item"><a routerLink="/logout"><i class="tf-ion-ios-person mr-3"></i></a></li>
+    </ul>
+  </div>
+
+</nav>
